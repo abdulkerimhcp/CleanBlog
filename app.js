@@ -11,27 +11,19 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', async (req, res) => {
-  const posts = await Post.find({});
-  res.render('index', { posts });
-});
+//Routes
+const postController = require('./controllers/postController');
+app.get('/', postController.getAllPost);
+app.get('/posts/:id', postController.getPost);
+app.post('/posts', postController.createPost);
+app.post('/posts/edit/:id', postController.updatePost);
+app.get('/posts/delete/:id', postController.deletePost);
 
-app.get('/post/:id', async (req, res) => {
-  const post = await Post.findById(req.params.id);
-  res.render('post', { post });
-});
 
-app.get('/about', (req, res) => {
-  res.render('about');
-});
-
-app.get('/add_post', (req, res) => {
-  res.render('add_post');
-});
-app.post('/add_new_post', async (req, res) => {
-  await Post.create(req.body);
-  res.redirect('/');
-});
+const pageController = require('./controllers/pageController');
+app.get('/about', pageController.getAboutPage);
+app.get('/add', pageController.getAddPage);
+app.get('/posts/edit/:id', pageController.getEditPage);
 
 const port = 5858;
 app.listen(port, () => {

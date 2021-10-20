@@ -1,29 +1,37 @@
 <%- include('partials/_header.ejs')-%>
 
-<body>
+  <body>
 
-  <!-- Navigation -->
-  <%- include('partials/_navigation.ejs')-%>
+    <!-- Navigation -->
+    <%- include('partials/_navigation.ejs')-%>
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1><%= post.title %></h1>
-            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-            <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              <%= post.dateCreate %></span>
+      <!-- Page Header -->
+      <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="post-heading">
+                <h1>
+                  <%= post.title %>
+                </h1>
+                <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                <span class="meta">Posted by
+                  <a href="#">Start Bootstrap</a>
+                  <%= post.dateCreate %>
+                </span>
+                <a style="background-color:cadetblue; border-radius: 8px; padding: 2px 10px;color: white;"
+                  href="/posts/edit/<%= post._id %>">Edit</a>
+                <a style="background-color:cadetblue; border-radius: 8px; padding: 2px 10px;color: white;"
+                  href="/posts/delete/<%= post._id %>">Delete</a>
+              </div>
+
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
+      </header>
 
-  <!-- Post Content -->
+      <!-- Post Content
   <article>
     <div class="container">
       <div class="row">
@@ -67,20 +75,20 @@
         </div>
       </div>
     </div>
-  </article>
+  </article> -->
 
-  <hr>
+      <hr>
 
-  <!-- Footer -->
-  <%- include('partials/_footer.ejs')-%>
+      <!-- Footer -->
+      <%- include('partials/_footer.ejs')-%>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
+        <!-- Custom scripts for this template -->
+        <script src="js/clean-blog.min.js"></script>
 
-</body>
+  </body>
 
-</html>
+  </html>
